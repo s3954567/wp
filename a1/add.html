@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets Victoria - Add a Pet</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@400;700&family=Poetsen+One&family=Permanent+Marker&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            background-color: #fcf9ec;
+            font-family: 'Ysabeau SC', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-dropdown">
+                <a href="index.html"><img src="images/logo.png" alt="Pets Victoria Logo"></a>
+                <select onchange="navigateMenu()">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="index.html">Home</option>
+                    <option value="pets.html">Pets</option>
+                    <option value="add.html">Add More</option>
+                    <option value="gallery.html">Gallery</option>
+                </select>
+            </div>
+            <form>
+                <input type="text" placeholder="Search" />
+                <span class="material-icons">search</span>
+            </form>
+        </nav>
+    </header>
+    <main>
+        <h2>Add a Pet</h2>
+        <p class="sub-title">YOU CAN ADD A PET FOR ADOPTION HERE</p>
+        <div class="content">
+            <form class="add-pet-form">
+                <div class="form-group">
+                    <label for="pet-name">PET NAME: <span>*</span></label>
+                    <input type="text" id="pet-name" placeholder="Provide the pet's name" class="full-width">
+                </div>
+                <div class="form-group">
+                    <label for="description">DESCRIPTION: <span>*</span></label>
+                    <textarea id="description" placeholder="Describe the pet briefly"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">SELECT AN IMAGE: <span>*</span></label>
+                    <input type="file" id="image">
+                    <span class="max-size"><i>MAX IMAGE SIZE 500 px</i></span>
+                </div>
+                <div class="form-group">
+                    <label for="image-caption">IMAGE CAPTION: <span>*</span></label>
+                    <input type="text" id="image-caption" placeholder="Describe the image in one word" class="full-width">
+                </div>
+                <div class="form-group">
+                    <label for="age">AGE: <span>*</span></label>
+                    <input type="text" id="age" placeholder="Pet's age in years" class="full-width">
+                </div>
+                <div class="form-group">
+                    <label for="location">LOCATION: <span>*</span></label>
+                    <input type="text" id="location" placeholder="Location of the pet" class="full-width">
+                </div>
+                <div class="form-group">
+                    <label for="type">TYPE: <span>*</span></label>
+                    <select id="type">
+                        <option value="" disabled selected>--Choose an Option--</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Copyright S3954567 JAIRO URRA. ALL RIGHTS RESERVED | DESIGNED FOR PETS VICTORIA</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

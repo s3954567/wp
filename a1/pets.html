@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets Victoria - Pets</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@400;700&family=Poetsen+One&family=Permanent+Marker&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-dropdown">
+                <a href="index.html"><img src="images/logo.png" alt="Pets Victoria Logo"></a>
+                <select onchange="navigateMenu()">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="index.html">Home</option>
+                    <option value="pets.html">Pets</option>
+                    <option value="add.html">Add More</option>
+                    <option value="gallery.html">Gallery</option>
+                </select>
+            </div>
+            <form>
+                <input type="text" placeholder="Search" />
+                <span class="material-icons">search</span>
+            </form>
+        </nav>
+    </header>
+    <main>
+        <h2>Find Your New Best Friend!</h2>
+        <p class="description">AT PETS VICTORIA, WE BELIEVE EVERY ANIMAL DESERVES A LOVING HOME. BELOW IS A LIST OF SOME OF THE PETS CURRENTLY AVAILABLE FOR ADOPTION. WHETHER YOU'RE LOOKING FOR A PLAYFUL PUPPY, A CUDDLY KITTEN, OR A WISE OLDER PET, WE HAVE A COMPANION FOR EVERYONE!</p>
+
+        <div class="content">
+            <div class="pets-container">
+                <img src="images/pets.jpeg" alt="Adoptable Pet" class="pets-image">
+                <div class="pets-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>NAME</th>
+                                <th>TYPE</th>
+                                <th>AGE</th>
+                                <th>LOCATION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>BELLA</td>
+                                <td>Dog</td>
+                                <td>3 Years</td>
+                                <td>Melbourne</td>
+                            </tr>
+                            <tr>
+                                <td>SIMBA</td>
+                                <td>Cat</td>
+                                <td>2 Years</td>
+                                <td>Geelong</td>
+                            </tr>
+                            <tr>
+                                <td>MAX</td>
+                                <td>Dog</td>
+                                <td>1 Year</td>
+                                <td>Ballarat</td>
+                            </tr>
+                            <tr>
+                                <td>WHISKERS</td>
+                                <td>Cat</td>
+                                <td>4 Years</td>
+                                <td>Bendigo</td>
+                            </tr>
+                            <tr>
+                                <td>ROCKY</td>
+                                <td>Dog</td>
+                                <td>5 Years</td>
+                                <td>Shepparton</td>
+                            </tr>
+                            <tr>
+                                <td>LUNA</td>
+                                <td>Cat</td>
+                                <td>6 Months</td>
+                                <td>Horsham</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Copyright S3954567 JAIRO URRA. ALL RIGHTS RESERVED | DESIGNED FOR PETS VICTORIA</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

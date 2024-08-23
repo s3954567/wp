@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets Victoria - Pets</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@400;700&family=Poetsen+One&family=Permanent+Marker&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-color: #fcf9ec;
+            font-family: 'Ysabeau SC', sans-serif;
+        }
+        h2 {
+            font-family: 'Poetsen One', sans-serif;
+            color: #E57F3D;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .description {
+            text-align: center;
+            color: #36454F;
+            margin-bottom: 10px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .image-container {
+            position: relative;
+            margin: 0 15px;
+            text-align: center;
+        }
+        .image-container img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .image-container p {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #008080;
+        }
+        .image-container .fa-search,
+        .image-container .discover-more {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            display: none;
+            font-size: 24px;
+        }
+        .image-container .discover-more {
+            font-size: 16px;
+            margin-top: 30px;
+        }
+        .image-container:hover .fa-search,
+        .image-container:hover .discover-more {
+            display: block;
+        }
+        .image-container img.transparent-image {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-dropdown">
+                <a href="index.html"><img src="images/logo.png" alt="Pets Victoria Logo"></a>
+                <select onchange="navigateMenu()">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="index.html">Home</option>
+                    <option value="pets.html">Pets</option>
+                    <option value="add.html">Add More</option>
+                    <option value="gallery.html">Gallery</option>
+                </select>
+            </div>
+            <form>
+                <input type="text" placeholder="Search" />
+                <span class="material-icons">search</span>
+            </form>
+        </nav>
+    </header>
+    <main>
+        <h2>Discover the Pets of Victoria!</h2>
+        <p class="description">LOOKING FOR A NEW FRIEND? EXPLORE THE PETS AVAILABLE FOR ADOPTION AND FIND YOUR PERFECT MATCH.</p>
+        <div class="container">
+            <div class="row">
+                <div class="image-container">
+                    <img src="images/dog1.jpeg" alt="Buddy the Dog">
+                    <p>Buddy the Dog</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/cat1.jpeg" alt="Mittens the Cat" class="transparent-image">
+                    <i class="fa fa-search"></i>
+                    <span class="discover-more">DISCOVER MORE</span>
+                    <p>Mittens the Cat</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/dog4.jpeg" alt="Firulais the Dog">
+                    <p>Firulais the Dog</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="image-container">
+                    <img src="images/dog2.jpeg" alt="Max the Dog">
+                    <p>Max the Dog</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/cat2.jpeg" alt="Whiskers the Cat">
+                    <p>Whiskers the Cat</p>
+                </div>
+                <div class="image-container">
+                    <img src="images/cat3.jpeg" alt="Billy the Cat">
+                    <p>Billy the Cat</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Copyright S3954567 JAIRO URRA. ALL RIGHTS RESERVED | DESIGNED FOR PETS VICTORIA</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
