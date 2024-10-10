@@ -8,7 +8,7 @@ if (strstr($_SERVER['SERVER_NAME'], 'localhost')) {
 } else {
     $servername = "talsprddb02.int.its.rmit.edu.au";
     $username = "s3954567";
-    $password = "your password";
+    $password = "Jairo2001";
     $dbname = "s3954567";
 }
 // Create connection
