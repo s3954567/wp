@@ -1,48 +1,56 @@
 <?php
-$title = "Pet Details";
+$title = "Pets Victoria - Details";
 include('includes/header.inc');
 include('includes/nav.inc');
 include('includes/db_connect.inc');
 
 if (isset($_GET['id'])) {
-    $id = intval($_GET['id']);
-    $sql = "SELECT * FROM pets WHERE petid = $id";
-    $result = $conn->query($sql);
+    $pet_id = intval($_GET['id']);
+
+    $sql = "SELECT * FROM pets WHERE petid = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $pet_id);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
     } else {
-        echo "Pet not found.";
+        echo "<p>Pet not found!</p>";
         exit;
     }
 } else {
-    echo "No pet ID provided.";
+    echo "<p>Invalid pet ID!</p>";
     exit;
 }
 ?>
 
-<main class="pet-details">
-    <h2><?php echo htmlspecialchars($row['petname']); ?></h2>
-    <div class="pet-image">
-        <img src="images/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['petname']); ?>">
-    </div>
-    <div class="pet-info">
-        <div class="info-item">
-            <span class="material-icons">schedule</span>
-            <p><?php echo htmlspecialchars($row['age']); ?></p>
+    <main>
+        <div class="details-content">
+            <div class="details-image">
+                <img src="<?php echo $row['image']; ?>" alt="<?php echo $row['caption']; ?>">
+            </div>
+            <div class="details">
+            <div class="item">
+                <i class="material-icons">schedule</i>
+                <p class="description"></p><?php echo $row['age']; ?> Months</p>
+            </div>
+            <div class="item">
+                <i class="material-icons">pets</i>
+                <p class="description"></p><?php echo $row['type']; ?></p>
+            </div>
+            <div class="item">
+                <i class="material-icons">location_on</i>
+                <p class="description"></p><?php echo $row['location']; ?></p>
+            </div>
+            </div>
+            <div class="pets-heading">
+                <h2><?php echo $row['petname']; ?></h2>
+                <p class="description"><?php echo $row['description']; ?></p>
+            </div>
         </div>
-        <div class="info-item">
-            <span class="material-icons">pets</span>
-            <p><?php echo htmlspecialchars($row['type']); ?></p>
-        </div>
-        <div class="info-item">
-            <span class="material-icons">place</span>
-            <p><?php echo htmlspecialchars($row['location']); ?></p>
-        </div>
-    </div>
-    <p class="pet-description"><?php echo htmlspecialchars($row['description']); ?></p>
-</main>
-
+    </main>
 <?php
 include('includes/footer.inc');
 ?>
