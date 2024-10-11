@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
 
 <main>
     <h2><?php echo htmlspecialchars($row['petname']); ?></h2>
-    <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['petname']); ?>">
+    <img src="images/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['petname']); ?>">
     <p><?php echo htmlspecialchars($row['description']); ?></p>
     <p>Type: <?php echo htmlspecialchars($row['type']); ?></p>
     <p>Age: <?php echo htmlspecialchars($row['age']); ?></p>
