@@ -21,13 +21,26 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<main>
+<main class="pet-details">
     <h2><?php echo htmlspecialchars($row['petname']); ?></h2>
-    <img src="images/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['petname']); ?>">
-    <p><?php echo htmlspecialchars($row['description']); ?></p>
-    <p>Type: <?php echo htmlspecialchars($row['type']); ?></p>
-    <p>Age: <?php echo htmlspecialchars($row['age']); ?></p>
-    <p>Location: <?php echo htmlspecialchars($row['location']); ?></p>
+    <div class="pet-image">
+        <img src="images/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['petname']); ?>">
+    </div>
+    <div class="pet-info">
+        <div class="info-item">
+            <span class="material-icons">schedule</span>
+            <p><?php echo htmlspecialchars($row['age']); ?></p>
+        </div>
+        <div class="info-item">
+            <span class="material-icons">pets</span>
+            <p><?php echo htmlspecialchars($row['type']); ?></p>
+        </div>
+        <div class="info-item">
+            <span class="material-icons">place</span>
+            <p><?php echo htmlspecialchars($row['location']); ?></p>
+        </div>
+    </div>
+    <p class="pet-description"><?php echo htmlspecialchars($row['description']); ?></p>
 </main>
 
 <?php
