@@ -5,23 +5,32 @@ include('includes/header.inc');
 include('includes/nav.inc');
 include('includes/db_connect.inc');
 
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
-    $password = hash('sha256', $_POST['password']);
+    $username = htmlspecialchars($_POST['username']);
+    $password = htmlspecialchars($_POST['password']);
 
-    $stmt = $conn->prepare("SELECT userid FROM users WHERE username = ? AND password = ?");
-    $stmt->bind_param("ss", $username, $password);
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
     $stmt->execute();
-    $stmt->store_result();
+    $result = $stmt->get_result();
 
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($userid);
-        $stmt->fetch();
-        $_SESSION['loggedin'] = true;
-        $_SESSION['userid'] = $userid;
-        header('Location: index.php');
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $username;
+            header('Location: index.php');
+            exit;
+        } else {
+            echo "Invalid password.";
+        }
     } else {
-        echo "Invalid username or password.";
+        echo "No user found with that username.";
     }
 
     $stmt->close();
