@@ -20,7 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
+        // Prepare the SQL statement
         $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+        
+        // Check if the prepare() method was successful
+        if ($stmt === false) {
+            die("Error preparing the SQL statement: " . $conn->error);
+        }
+
         $stmt->bind_param("ss", $username, $hashed_password);
 
         if ($stmt->execute()) {
