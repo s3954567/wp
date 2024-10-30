@@ -44,10 +44,3 @@
         </div>
     </nav>
 </header>
-<script>
-    function navigate(page) {
-        if (page) {
-            window.location.href = page;  // Redirect to the selected page
-        }
-    }
-</script>

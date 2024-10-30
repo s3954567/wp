@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = "Pets Victoria - Pets";
 include('includes/header.inc');
 include('includes/nav.inc');
