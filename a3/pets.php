@@ -15,13 +15,14 @@ include('includes/nav.inc');
                 <img src="images/pets.jpeg" alt="Pets">
             </div>
             <div class="pets-table">
-                <table>
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Pet</th>
                             <th>Type</th>
                             <th>Age</th>
                             <th>Location</th>
+                            <th>Actions</th> <!-- Add Actions column -->
                         </tr>
                     </thead>
                     <tbody>
@@ -52,20 +53,24 @@ include('includes/nav.inc');
                             echo '<td>' . $type . '</td>';
                             echo '<td>' . $age . ' months</td>';
                             echo '<td>' . $location . '</td>';
+                            echo '<td>'; // Actions column
+                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
+                                echo '<a href="edit.php?id=' . $petid . '" class="btn btn-warning btn-sm">Edit</a> ';
+                                echo '<a href="delete.php?id=' . $petid . '" class="btn btn-danger btn-sm" onclick="return confirm(\'Are you sure you want to delete this pet?\');">Delete</a>';
+                            }
+                            echo '</td>';
                             echo '</tr>';
                         }
                     } else {
-                        echo '<tr><td colspan="4">No results found.</td></tr>';
+                        echo '<tr><td colspan="5">No results found.</td></tr>'; // Update colspan to match the number of columns
                     }
                     ?>
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>
 </main>
-<?php
-include('includes/footer.inc');
-?>
+
+<?php include('includes/footer.inc'); ?>
 <script src="./js/main.js"></script>

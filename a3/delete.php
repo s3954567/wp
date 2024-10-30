@@ -12,8 +12,10 @@ include('includes/db_connect.inc');
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
-    $sql = "SELECT * FROM pets WHERE petid = $id";
-    $result = $conn->query($sql);
+    $stmt = $conn->prepare("SELECT * FROM pets WHERE petid = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -21,6 +23,7 @@ if (isset($_GET['id'])) {
         echo "Pet not found.";
         exit;
     }
+    $stmt->close();
 } else {
     echo "No pet ID provided.";
     exit;
@@ -32,12 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt->execute()) {
         // Delete image from file system
-        unlink("images/" . $row['image']);
+        if (file_exists("images/" . $row['image'])) {
+            unlink("images/" . $row['image']);
+        }
         echo "Pet deleted successfully.";
     } else {
-        echo "Error deleting pet.";
+        echo "Error deleting pet: " . $stmt->error;
     }
-
     $stmt->close();
     $conn->close();
 }
@@ -45,10 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <main class="container">
     <h2>Delete Pet</h2>
-    <p>Are you sure you want to delete this pet?</p>
     <form action="delete.php?id=<?php echo $id; ?>" method="post">
+        <p>Are you sure you want to delete the pet named "<?php echo htmlspecialchars($row['petname']); ?>"?</p>
         <button type="submit" class="btn btn-danger">Delete</button>
-        <a href="details.php?id=<?php echo $id; ?>" class="btn btn-secondary">Cancel</a>
+        <a href="pets.php" class="btn btn-secondary">Cancel</a>
     </form>
 </main>
 
