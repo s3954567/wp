@@ -10,6 +10,11 @@ include('includes/header.inc');
 include('includes/nav.inc');
 include('includes/db_connect.inc');
 
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
     $stmt = $conn->prepare("SELECT * FROM pets WHERE petid = ?");
@@ -100,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <textarea id="description" name="description" required><?php echo htmlspecialchars($row['description']); ?></textarea>
         </div>
         <div class="form-group">
-            <label for="age">Age (months): <span>*</span></label>
+            <label for="age">Age: <span>*</span></label>
             <input type="number" id="age" name="age" value="<?php echo htmlspecialchars($row['age']); ?>" required>
         </div>
         <div class="form-group">
