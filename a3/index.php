@@ -57,7 +57,7 @@ $images = $result->fetch_all(MYSQLI_ASSOC); // Fetch data as an associative arra
                                     <img src="<?php echo htmlspecialchars($image['image']); ?>" 
                                          class="d-block w-100" 
                                          style="max-width: 500px; max-height: 500px;" 
-                                         alt="<?php echo htmlspecialchars($image['caption']); ?>">
+                                         alt="<?php echo htmlspecialchars($image['image']); ?>">
                                 </div>
                             <?php endforeach; ?>
             </div>
