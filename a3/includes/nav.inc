@@ -8,7 +8,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-teal">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
-                <img src="images/favicon.jpeg" alt="Pets Victoria Logo" class="logo-img">
+                <img src="images/logo.png" alt="Pets Victoria Logo" class="logo-img">
             </a>
             <button
                 class="navbar-toggler"
