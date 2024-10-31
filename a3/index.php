@@ -30,7 +30,7 @@ if ($result && $result->num_rows > 0) {
         <div class="carousel-inner">
             <?php foreach ($images as $index => $image): ?>
                 <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
-                    <img src="images/<?php echo htmlspecialchars($image); ?>" class="d-block w-100" alt="Pet Image" style="max-width: 500px; max-height: 500px; margin: 0 auto;">
+                    <img src="uploads/<?php echo htmlspecialchars($image); ?>" class="d-block w-100" alt="Pet Image" style="max-width: 500px; max-height: 500px; margin: 0 auto;">
                 </div>
             <?php endforeach; ?>
         </div>
