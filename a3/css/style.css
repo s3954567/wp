@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fcf9ec;
-    max-width: 1200px;
     margin: 0 auto;
     padding-top: 56px; /* Adjust based on your navbar height */
 }
