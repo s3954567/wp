@@ -6,7 +6,7 @@ include('includes/nav.inc');
 include('includes/db_connect.inc');
 
 // Fetch the last four images added to the database
-$sql = "SELECT image, caption FROM pets ORDER BY created_at DESC LIMIT 4";
+$sql = "SELECT image,FROM pets ORDER BY created_at DESC LIMIT 4";
 $result = $conn->query($sql);
 
 // Check if the query was successful
