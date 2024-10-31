@@ -5,7 +5,8 @@ include('includes/nav.inc');
 include('includes/db_connect.inc');
 
 // Fetch the last 4 images from the 'pets' table
-$query = "SELECT image, caption FROM pets ORDER BY petid DESC LIMIT 4";
+$sql = "SELECT * FROM pets";
+// $query = "SELECT image, caption FROM pets ORDER BY petid DESC LIMIT 4";
 $result = $conn->query($query);
 $images = $result->fetch_all(MYSQLI_ASSOC); // Fetch data as an associative array
 ?>
