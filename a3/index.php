@@ -54,7 +54,7 @@ $images = $result->fetch_all(MYSQLI_ASSOC); // Fetch data as an associative arra
             <div class="carousel-inner">
             <?php foreach ($images as $index => $image): ?>
                                 <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
-                                    <img src="<?php echo htmlspecialchars($image['image']); ?>" 
+                                    <img src="images/<?php echo htmlspecialchars($image['image']); ?>" 
                                          class="d-block w-100" 
                                          style="max-width: 500px; max-height: 500px;" 
                                          alt="<?php echo htmlspecialchars($image['image']); ?>">
