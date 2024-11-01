@@ -18,26 +18,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($password !== $confirm_password) {
         echo "Passwords do not match.";
     } else {
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        // Check if the username already exists
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        // Prepare the SQL statement
-        $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-        
-        // Check if the prepare() method was successful
-        if ($stmt === false) {
-            die("Error preparing the SQL statement: " . $conn->error);
-        }
-
-        $stmt->bind_param("ss", $username, $hashed_password);
-
-        if ($stmt->execute()) {
-            echo "Registration successful. <a href='login.php'>Login here</a>.";
+        if ($result->num_rows > 0) {
+            echo "Username already exists. Please choose a different username.";
         } else {
-            echo "Error: " . $stmt->error;
-        }
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt->close();
-        $conn->close();
+            // Prepare the SQL statement
+            $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+            
+            // Check if the prepare() method was successful
+            if ($stmt === false) {
+                die("Error preparing the SQL statement: " . $conn->error);
+            }
+
+            $stmt->bind_param("ss", $username, $hashed_password);
+
+            if ($stmt->execute()) {
+                echo "Registration successful. <a href='login.php'>Login here</a>.";
+            } else {
+                echo "Error: " . $stmt->error;
+            }
+
+            $stmt->close();
+            $conn->close();
+        }
     }
 }
 ?>
