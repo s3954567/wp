@@ -7,7 +7,7 @@
         }
 
         // Only show user links if user is logged in
-        if (isset($_SESSION['username'])) {
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
             // Database connection
             include('includes/db_connect.inc');
 
@@ -16,10 +16,8 @@
                 die("Connection failed: " . mysqli_connect_error());
             }
 
-            // Fetch unique usernames of users who uploaded pets
-            $sql = "SELECT DISTINCT users.username 
-                   FROM users 
-                   JOIN pets ON users.username = pets.username";
+            // Fetch all users from the users table
+            $sql = "SELECT username FROM users";
 
             // Add error handling for query
             $result = $conn->query($sql);
