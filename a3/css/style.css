@@ -24,39 +24,41 @@ body {
     height: 50px;
   }
   
-  /* Hero Section */
-  .carousel-item img {
-    width: 100%;
-    max-width: 500px;
-    height: 400%;
-    max-height: 500px;
-    object-fit: cover;
-  }
-  
-  #hero {
-    background-color: #fcf9ec;
-  }
-  
-  #hero .text h1 {
-    color: #e57f3d;
-    font-family: "Permanent Marker", cursive;
-    font-size: 70px;
-  }
-  
-  #hero .text p {
-    font-family: "Poetsen One", sans-serif;
-    color: #008080;
-    font-size: 60px;
+/* Add or update these styles in your CSS */
+#hero {
+    padding: 2rem 0;
+    background-color: #fff9f2;
+}
+
+.hero-title {
+    font-size: 3.5rem;
     font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 0;
-    width: 80%;
-  }
-  
-  #content h2 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 400;
-  }
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .hero-content {
+        padding: 2rem 0;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+}
   
   /* Form Styling */
   #login form,

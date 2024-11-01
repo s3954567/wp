@@ -153,45 +153,6 @@ $images = $result->fetch_all(MYSQLI_ASSOC);
         </div>
     </div>
 </section>
-
-<style>
-/* Add or update these styles in your CSS */
-#hero {
-    padding: 2rem 0;
-    background-color: #fff9f2;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-    font-size: 2rem;
-    font-weight: 500;
-}
-
-.carousel-item img {
-    object-fit: cover;
-    height: 400px;
-    width: 100%;
-}
-
-/* Responsive adjustments */
-@media (max-width: 991px) {
-    .hero-content {
-        padding: 2rem 0;
-    }
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    .hero-subtitle {
-        font-size: 1.5rem;
-    }
-}
-</style>
-
         <!-- Search Section -->
         <section id="search" class="py-5 bg-light">
             <div class="container">
