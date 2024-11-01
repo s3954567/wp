@@ -22,6 +22,7 @@ $images = $result->fetch_all(MYSQLI_ASSOC);
     <style>
         :root {
             --teal-primary: #008080;
+            --coral: #ff7f50;
         }
 
         body {
@@ -42,14 +43,21 @@ $images = $result->fetch_all(MYSQLI_ASSOC);
             width: 100%;
         }
 
-        h1 {
-            color: var(--teal-primary);
-            font-weight: bold;
+        #hero {
+            background-color: #fff9f2;
+            padding: 2rem 0;
         }
 
-        .lead {
-            color: #ff7f50;
-            font-size: 1.5rem;
+        .hero-title {
+            color: var(--coral);
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            color: var(--teal-primary);
+            font-size: 2rem;
             font-weight: 500;
         }
 
@@ -58,6 +66,15 @@ $images = $result->fetch_all(MYSQLI_ASSOC);
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -124,10 +141,10 @@ $images = $result->fetch_all(MYSQLI_ASSOC);
                         </div>
                     </div>
                     <!-- Hero content on the right -->
-                    <div class="col-md-6 text-center text-md-start">
-                        <div class="text px-4">
-                            <h1 class="display-4 mb-3">PETS VICTORIA</h1>
-                            <p class="lead">WELCOME TO PET ADOPTION</p>
+                    <div class="col-md-6">
+                        <div class="text-md-end text-center px-4">
+                            <h1 class="hero-title">PETS VICTORIA</h1>
+                            <p class="hero-subtitle">WELCOME TO PET ADOPTION</p>
                         </div>
                     </div>
                 </div>
@@ -188,4 +205,3 @@ $images = $result->fetch_all(MYSQLI_ASSOC);
 </html>
 
 <?php include('includes/footer.inc'); ?>
-
