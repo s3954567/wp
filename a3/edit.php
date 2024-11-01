@@ -81,9 +81,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // Update pet details in the database
+    // Prepare the SQL statement
     $stmt = $conn->prepare("UPDATE pets SET petname = ?, description = ?, age = ?, location = ?, type = ?, caption = ?, image = ? WHERE petid = ?");
+    
+    // Check if the prepare() method was successful
+    if ($stmt === false) {
+        die("Error preparing the SQL statement: " . $conn->error);
+    }
+
     $stmt->bind_param("ssissssi", $petname, $description, $age, $location, $type, $caption, $image, $id);
+
     if ($stmt->execute()) {
         echo "Pet updated successfully.";
     } else {
