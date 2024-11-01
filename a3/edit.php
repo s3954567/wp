@@ -98,32 +98,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <form action="edit.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="petname">Pet Name: <span>*</span></label>
-            <input type="text" id="petname" name="petname" value="<?php echo htmlspecialchars($row['petname']); ?>" required>
+            <input type="text" id="petname" name="petname" value="<?php echo htmlspecialchars($row['petname']); ?>" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="description">Description: <span>*</span></label>
-            <textarea id="description" name="description" required><?php echo htmlspecialchars($row['description']); ?></textarea>
+            <textarea id="description" name="description" class="form-control" required><?php echo htmlspecialchars($row['description']); ?></textarea>
         </div>
         <div class="form-group">
             <label for="age">Age: <span>*</span></label>
-            <input type="number" id="age" name="age" value="<?php echo htmlspecialchars($row['age']); ?>" required>
+            <input type="number" id="age" name="age" value="<?php echo htmlspecialchars($row['age']); ?>" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="location">Location: <span>*</span></label>
-            <input type="text" id="location" name="location" value="<?php echo htmlspecialchars($row['location']); ?>" required>
+            <input type="text" id="location" name="location" value="<?php echo htmlspecialchars($row['location']); ?>" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="type">Type: <span>*</span></label>
-            <input type="text" id="type" name="type" value="<?php echo htmlspecialchars($row['type']); ?>" required>
+            <input type="text" id="type" name="type" value="<?php echo htmlspecialchars($row['type']); ?>" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="image">Select an image: <span>*</span></label>
-            <input type="file" id="image" name="file01">
+            <input type="file" id="image" name="file01" class="form-control">
             <span class="max-size"><i>Max image size 500 px</i></span>
         </div>
         <div class="form-group">
             <label for="caption">Image caption: <span>*</span></label>
-            <input type="text" id="caption" name="caption" value="<?php echo htmlspecialchars($row['caption']); ?>" required>
+            <input type="text" id="caption" name="caption" value="<?php echo isset($row['caption']) ? htmlspecialchars($row['caption']) : ''; ?>" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
