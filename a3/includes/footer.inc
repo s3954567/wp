@@ -7,14 +7,19 @@
         }
 
         // Only show user links if user is logged in
-        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
+        if (isset($_SESSION['username'])) {
             // Database connection
             include('includes/db_connect.inc');
 
+            // Check if connection is successful
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
             // Fetch unique usernames of users who uploaded pets
-            $sql = "SELECT users.username 
-                    FROM users 
-                    JOIN pets ON users.username = pets.username";
+            $sql = "SELECT DISTINCT users.username 
+                   FROM users 
+                   JOIN pets ON users.username = pets.username";
 
             // Add error handling for query
             $result = $conn->query($sql);
@@ -38,10 +43,11 @@
         }
         ?>
     </div>
-    <p>&copy; <?php echo date('Y'); ?> Jairo Urra | All Rights Reserved | Designed for Pets Victoria</p>
+    <p>&copy; <?php echo date('Y'); ?> S3949813 | All Rights Reserved | Designed for Pets Victoria</p>
 </footer>
 
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/main.js"></script>
 </body>
 </html>
