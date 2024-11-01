@@ -102,54 +102,95 @@ $images = $result->fetch_all(MYSQLI_ASSOC);
         <?php endif; ?>
 
         <!-- Hero Section -->
-        <section id="hero" class="py-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    <!-- Carousel on the left -->
-                    <div class="col-md-6">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <?php foreach ($images as $index => $image): ?>
-                                    <button type="button" 
-                                        data-bs-target="#carouselExampleIndicators" 
-                                        data-bs-slide-to="<?php echo $index; ?>" 
-                                        class="<?php echo $index === 0 ? 'active' : ''; ?>" 
-                                        aria-current="<?php echo $index === 0 ? 'true' : 'false'; ?>" 
-                                        aria-label="Slide <?php echo $index + 1; ?>">
-                                    </button>
-                                <?php endforeach; ?>
-                            </div>
-                            <div class="carousel-inner">
-                                <?php foreach ($images as $index => $image): ?>
-                                    <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
-                                        <img src="images/<?php echo htmlspecialchars($image['image']); ?>" 
-                                             class="d-block w-100 img-fluid" 
-                                             alt="<?php echo htmlspecialchars($image['image']); ?>">
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                            <button class="carousel-control-prev" type="button" 
-                                    data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" 
-                                    data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+<section id="hero" class="py-5">
+    <div class="container">
+        <div class="row g-0 align-items-center">
+            <!-- Carousel column (left side) -->
+            <div class="col-lg-6">
+                <div class="pe-lg-4">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <?php foreach ($images as $index => $image): ?>
+                                <button type="button" 
+                                    data-bs-target="#carouselExampleIndicators" 
+                                    data-bs-slide-to="<?php echo $index; ?>" 
+                                    class="<?php echo $index === 0 ? 'active' : ''; ?>" 
+                                    aria-current="<?php echo $index === 0 ? 'true' : 'false'; ?>" 
+                                    aria-label="Slide <?php echo $index + 1; ?>">
+                                </button>
+                            <?php endforeach; ?>
                         </div>
-                    </div>
-                    <!-- Hero content on the right -->
-                    <div class="col-md-6">
-                        <div class="text-md-end text-center px-4">
-                            <h1 class="hero-title">PETS VICTORIA</h1>
-                            <p class="hero-subtitle">WELCOME TO PET ADOPTION</p>
+                        <div class="carousel-inner">
+                            <?php foreach ($images as $index => $image): ?>
+                                <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
+                                    <img src="images/<?php echo htmlspecialchars($image['image']); ?>" 
+                                         class="d-block w-100" 
+                                         alt="<?php echo htmlspecialchars($image['image']); ?>">
+                                </div>
+                            <?php endforeach; ?>
                         </div>
+                        <button class="carousel-control-prev" type="button" 
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" 
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </div>
             </div>
-        </section>
+            
+            <!-- Text column (right side) -->
+            <div class="col-lg-6 d-flex align-items-center">
+                <div class="hero-content text-lg-start text-center w-100 ps-lg-4 mt-4 mt-lg-0">
+                    <h1 class="hero-title" style="color: #ff7f50;">PETS VICTORIA</h1>
+                    <p class="hero-subtitle" style="color: #008080;">WELCOME TO PET ADOPTION</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Add or update these styles in your CSS */
+#hero {
+    padding: 2rem 0;
+    background-color: #fff9f2;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .hero-content {
+        padding: 2rem 0;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+}
+</style>
 
         <!-- Search Section -->
         <section id="search" class="py-5 bg-light">
