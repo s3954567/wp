@@ -43,7 +43,7 @@
         }
         ?>
     </div>
-    <p>&copy; <?php echo date('Y'); ?> S3949813 | All Rights Reserved | Designed for Pets Victoria</p>
+    <p>&copy; <?php echo date('Y'); ?> S3954567 | All Rights Reserved | Designed for Pets Victoria</p>
 </footer>
 
 <!-- Bootstrap Bundle with Popper -->
