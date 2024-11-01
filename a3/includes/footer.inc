@@ -36,9 +36,6 @@
 
             // Close the database connection
             $conn->close();
-
-            // Add the logout button
-            echo "<a href='logout.php' class='mx-2'>Logout</a>";
         } else {
             // Optional: Show a message or login link for non-logged in users
             echo "<p>Please <a href='login.php'>login</a> to see user profiles</p>";
