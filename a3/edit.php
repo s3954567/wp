@@ -45,20 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Handle file upload securely
     if ($image) {
         $target_dir = "images/";
-$target_file = $target_dir . basename($_FILES["image"]["name"]);
-
-// Check if file exists and delete it
-if (file_exists($target_file)) {
-    unlink($target_file); // Remove the existing file
-}
-
-// Move the uploaded file
-if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-    echo "File uploaded and replaced successfully!";
-} else {
-    echo "Sorry, there was an error uploading your file.";
-}
-
+        $target_file = $target_dir . basename($image);
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
         // Check if image file is an actual image or fake image
         $check = getimagesize($_FILES['file01']['tmp_name']);
