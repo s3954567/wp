@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Handle file upload securely
     if ($image) {
-        $target_dir = "uploads/";
+        $target_dir = "images/";
         $target_file = $target_dir . basename($image);
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
